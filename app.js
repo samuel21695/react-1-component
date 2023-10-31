@@ -44,4 +44,9 @@ function component(elementNode, attributes, children) {
 
   return elementStr; // 함수가 호출되는 순간 문자열이 반환된다.
 }
+// 문자열로 잘 작동하는지 테스트 한 아래 코드
+let test = component('div', { style: 'color:blue;'}, [
+  component('h1', {}, ['This is Page 1'])
+]);
 
+console.log(test);
