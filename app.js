@@ -24,4 +24,21 @@ function component(elementNode, attributes, children) {
     // 대표적으로 python 에서는 해당 문법 접근이 기본 반복문이다.
     elementStr += `${key}="${attributes[key]}"`;
   }
+  elementStr += '>';
+  // 만약 children 이라는 값이 '있다면' true 판정이 이루어진다.
+  // 조건식에서 "존재유뮤"로도 사용하기도 한다.
+  if (children) {
+    children,forEach((child) => {
+      // children 매개변수는 배열이어야 한다.
+      // 배열의 각 요소를 순회하는 forEach()를 사용하였다.
+      // 절차형으로 for 문을 사용해도 되지만, 자바스크립트 다운 방식으로 작성했다.
+      if (typeof child === 'string') {
+        elementStr += child;
+      } else {
+        elementStr += component(child.elementNode, child.attributes, child.children);
+      }
+    });
+  }
+
+  
 }
