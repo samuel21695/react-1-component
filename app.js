@@ -40,5 +40,8 @@ function component(elementNode, attributes, children) {
     });
   }
 
-  
+  elementStr += `</${elementNode}>`; // 맨 위 변수에 덧붙여서 반환한다.
+
+  return elementStr; // 함수가 호출되는 순간 문자열이 반환된다.
 }
+
